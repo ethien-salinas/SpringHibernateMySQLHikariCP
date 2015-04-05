@@ -31,5 +31,16 @@ public class PersonaDAOImpl implements PersonaDAO {
         session.close();
         return personList;
     }
- 
+
+	@SuppressWarnings("unchecked")
+	public Persona getPersonaByNombre(String nombre) {
+		Session session = this.sessionFactory.openSession();
+		List<Persona> personList = session.createQuery("select p from Persona p where p.nombre = :pName")
+				.setParameter("pName", nombre).list();
+		if(personList.size() != 0)
+			return personList.get(0);
+		else
+			return null;
+	}
+
 }

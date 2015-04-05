@@ -14,7 +14,7 @@ public class MainApplication {
 		// ***** Spring context call *****
 		ClassPathXmlApplicationContext cxt = new ClassPathXmlApplicationContext("spring-ctx.xml");
 
-		PersonaDAO personDAO = cxt.getBean(PersonaDAO.class);
+		PersonaDAO personDAO = cxt.getBean("personaDAOImpl", PersonaDAO.class);
 
 		Persona person = new Persona();
 		person.setNombre("Elizabeth");
@@ -30,6 +30,8 @@ public class MainApplication {
 			System.out.println("Person List::" + p);
 		}
 		
+		System.out.println(personDAO.getPersonaByNombre("ETHIEN"));
+
 		// ***** Spring close *****
 		cxt.close();
 	}

@@ -43,7 +43,7 @@
 	</bean>
 
 
-	<bean id="personDAO" class="com.ethien.dao.PersonaDAOImpl">
+	<bean id="personaDAOImpl" class="com.ethien.dao.PersonaDAOImpl">
 		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</bean>
 </beans>
